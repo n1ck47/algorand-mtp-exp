@@ -1,0 +1,154 @@
+{
+    "Genesis": {
+        "NetworkName": "",
+        "Wallets": [
+            {
+                "Name": "Wallet1",
+                "Stake": 10,
+                "Online": true
+            },
+            {
+                "Name": "Wallet2",
+                "Stake": 10,
+                "Online": true
+            },
+            {
+                "Name": "Wallet3",
+                "Stake": 10,
+                "Online": false
+            },
+            {
+                "Name": "Wallet4",
+                "Stake": 10,
+                "Online": true
+            },
+            {
+                "Name": "Wallet5",
+                "Stake": 10,
+                "Online": true
+            },
+            {
+                "Name": "Wallet6",
+                "Stake": 10,
+                "Online": false
+            },
+            {
+                "Name": "Wallet7",
+                "Stake": 10,
+                "Online": true
+            },
+            {
+                "Name": "Wallet8",
+                "Stake": 10,
+                "Online": true
+            },
+            {
+                "Name": "Wallet9",
+                "Stake": 10,
+                "Online": false
+            },
+            {
+                "Name": "Wallet10",
+                "Stake": 10,
+                "Online": true
+            }
+        ]
+    },
+    "Nodes": [
+        {
+            "Name": "Relay1",
+            "IsRelay": true,
+            "Wallets": [
+                {
+                    "Name": "Wallet1",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Relay2",
+            "IsRelay": true,
+            "Wallets": [
+                {
+                    "Name": "Wallet2",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Relay3",
+            "IsRelay": true,
+            "Wallets": [
+                {
+                    "Name": "Wallet3",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Relay4",
+            "IsRelay": true,
+            "Wallets": [
+                {
+                    "Name": "Wallet4",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Relay5",
+            "IsRelay": true,
+            "Wallets": [
+                {
+                    "Name": "Wallet5",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Node1",
+            "Wallets": [
+                {
+                    "Name": "Wallet6",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Node2",
+            "Wallets": [
+                {
+                    "Name": "Wallet7",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Node3",
+            "Wallets": [
+                {
+                    "Name": "Wallet8",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Node4",
+            "Wallets": [
+                {
+                    "Name": "Wallet9",
+                    "ParticipationOnly": false
+                }
+            ]
+        },
+        {
+            "Name": "Node5",
+            "Wallets": [
+                {
+                    "Name": "Wallet10",
+                    "ParticipationOnly": false
+                }
+            ]
+        }
+    ]
+}

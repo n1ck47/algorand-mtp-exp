@@ -1,0 +1,8 @@
+{
+	"Version": 28,
+	"GossipFanout": 9,
+	"IncomingConnectionsLimit": 0,
+	"DNSBootstrapID": "",
+	"EnableProfiler": true,
+	"EnableRuntimeMetrics": true
+}

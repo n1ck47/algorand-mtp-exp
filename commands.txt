@@ -1,0 +1,6 @@
+goal network start -r ~/algorand-private/net1
+
+curl -X GET -H "X-Algo-API-Token: $(cat ~/algorand-private/net1/Node/algod.token)" -H "Content-Type: application/x-binary" http://127.0.0.1:49283/v2/blocks/59430
+
+./algorand-indexer daemon --data-dir /tmp -P "host=localhost port=5432 user=postgres password=okiedokie dbname=postgres sslmode=disable" --algod-net="http://127.0.0.1:49283" --algod-token="6bc5ba5d67118283a473c9a7f612dd4d1cfebfb7f362e6fa40aefb870e7822f7"
+

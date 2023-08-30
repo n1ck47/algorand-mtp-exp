@@ -1,0 +1,30 @@
+Commands to add a delay
+------------------------------------------------------
+sudo tc qdisc add dev lo root handle 1: htb default 12
+
+sudo tc class add dev lo parent 1:1 classid 1:12 htb rate 56kbps ceil 128kbps
+
+sudo tc qdisc add dev lo parent 1:12 netem delay 1000ms
+=======================================================
+
+
+
+
+Download from ssh
+---------------------------------------------------------
+scp nikhil@10.96.19.219:algorand-private/test.js ~/Documents/MTP/
+=========================================================
+
+
+
+
+TC network delay
+---------------------------------------------------------
+sudo tc qdisc add dev lo root tbf rate 1024kbit latency 10ms burst 1540
+
+sudo tc qdisc replace dev lo root tbf rate 1024Gbit latency 0.1ms burst 500
+
+sudo tc qdisc show dev lo root
+
+sudo tc qdisc add dev lo root tbf latency 10ms
+=========================================================
