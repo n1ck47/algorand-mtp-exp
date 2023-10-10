@@ -2,7 +2,7 @@ Commands to add a delay
 ------------------------------------------------------
 sudo tc qdisc add dev lo root handle 1: htb default 12
 
-sudo tc class add dev lo parent 1:1 classid 1:12 htb rate 560Mbps ceil 128kbps
+sudo tc class add dev lo parent 1:1 classid 1:12 htb rate 56kbps ceil 128kbps
 
 sudo tc qdisc add dev lo parent 1:12 netem delay 0ms
 =======================================================
@@ -14,12 +14,14 @@ sudo tc qdisc add dev lo root handle 1: htb default 100
 
 
 
-
-
+https://bencane.com/2012/07/16/tc-adding-simulated-network-latency-to-your-linux-server/
+to add: tc qdisc add dev lo root netem delay 97ms
+to verify: tc -s qdisc
+to remove: tc qdisc del dev lo root netem
 
 Download from ssh
 ---------------------------------------------------------
-scp nikhil@10.96.19.219:algorand-private/test.js ~/Documents/MTP/
+scp nikhil@10.96.0.88:Documents/codeforce.cpp ~/Documents/CP/
 =========================================================
 
 
@@ -42,3 +44,34 @@ sudo tc qdisc add dev lo root tbf latency 10ms
 
 Show after adding delay
 qdisc htb 1: root refcnt 2 r2q 10 default 0x12 direct_packets_stat 0 direct_qlen 1000
+
+iptables -t mangle -A PREROUTING -s 127.0.0.1 -d 127.0.0.1 -p tcp --sport 38821 --dport 37112 -j MARK --set-mark 1
+iptables -t mangle -A PREROUTING -i eth0 -p tcp --dport 80 -j MARK --set-mark 42
+
+
+node 37112
+relay1 38821
+
+tc qdisc add dev lo root handle 1:0 htb default 2
+
+tc class add dev lo parent 1:1 classid 1:1 htb rate 100mbps
+
+tc qdisc add dev lo parent 1:1 handle 1:0 sfq perturb 10
+
+tc filter add dev lo parent 1:1 handle 1 fw flowid 1:1
+
+sudo tc qdisc add dev lo parent 1:1 netem delay 0ms
+
+
+
+
+
+tc qdisc add dev lo root handle 1: htb
+tc class add dev lo parent 1: classid 1:1 htb rate 1mbit
+tc filter add dev lo parent 1: protocol ip prio 1 handle 1 fw flowid 1:1
+tc qdisc add dev lo parent 1:1 netem delay 10000ms
+
+
+tc qdisc add dev lo root handle 1: prio
+tc qdisc add dev lo parent 1:1 handle 2: netem delay 1000ms
+tc filter add dev lo parent 1:0 protocol ip u32 match ip src 127.0.0.1 match ip sport 38821 match ip dst 127.0.0.1 match ip dport 37112 flowid 1:1
